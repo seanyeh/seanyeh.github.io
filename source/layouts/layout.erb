@@ -1,0 +1,44 @@
+<% wrap_layout :base do %>
+
+    <div class="center-box div-title">
+
+        <%# Show title and menu on pages EXCEPT home %>
+        <% if current_page.data.title != "Sean Yeh - Home" %>
+            <div class="title-menu float-right">
+
+                <% categories = {"pages" => "blog", "teaching" => "teach", "code" => "code", "music" => "music"} %>
+                <%# <% categories = {"teaching" => "teach", "code" => "code", "music" => "music"} %>
+                <% categories.each do |category, category_text| %>
+                    <a class="menu-item float-right <%= category.to_s %>" href="/<%= category.to_s %>/">
+                        <div>
+                            <div class="icon"></div>
+                            <%= category_text.to_s %>
+                        </div>
+                    </a>
+                <% end %>
+
+            </div>
+          <% end %>
+
+          <div class="title">
+              <a href="/">
+                  Sean Yeh
+              </a>
+          </div>
+
+
+    </div>
+
+    <div class="<%= page_classes %> content">
+        <%= yield %>
+
+
+        <%# CONTACT info %>
+        <div class="center-box">
+            <div class="footer">
+                Contact: <%= obfuscate_email("sean", "seanyeh.com") %>
+            </div>
+        </div>
+    </div>
+
+<% end %>

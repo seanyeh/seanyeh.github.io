@@ -1,0 +1,774 @@
+/*
+ * Variables
+ */
+
+$blue: #00DFFF;
+$white: white;
+$lightgray: #CCC;
+
+$third: 32.5%;
+$half: 49%;
+$full: 98%;
+
+
+/*
+ * General
+ */
+
+.break {
+    margin-bottom: 1em;
+}
+.halfbreak {
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    // margin: 0;
+    // padding-top: 1.2em;
+    // padding-bottom: 1.2em;
+}
+
+/* span.h3 { */
+/*     font-size: 1.1em; */
+/*     line-height: 1.1em; */
+/*     font-weight: bold; */
+/* } */
+
+h4 {
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+// .center {
+//     margin: 0 auto;
+//
+//     max-width: 75%;
+//     padding-right: 15px;
+//     padding-left: 15px;
+// }
+//
+
+div.box-container {
+    width: 100%;
+    overflow: auto;
+}
+
+$box-border-color: #333;
+
+
+%box {
+    position: relative;
+    float: left;
+
+    // overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: 1px solid $box-border-color;
+    &:hover {
+        border: 1px solid $blue;
+    }
+
+    line-height: 0em;
+
+    // position: fixed;
+
+    > img {
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+    }
+
+    div.caption {
+        color: $white;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+
+        background: rgba(0, 0, 0, 0.8);
+
+        text-align: center;
+        font-size: 0.8em;
+        line-height: 1em;
+
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+
+        // prevent padding from increasing width
+        box-sizing: border-box;
+
+        > h3 {
+            margin: 0;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+
+            line-height: 1.2em;
+            font-size: 1.1em;
+        }
+
+        > div.desc {
+            padding-bottom: 0.5em;
+            line-height: 1.1em;
+        }
+
+
+    }
+}
+
+.box-2 {
+    @extend %box;
+    width: $half;
+    div.caption { min-height: 20%; }
+}
+.box-3 {
+    @extend %box;
+    width: $third;
+    div.caption { min-height: 30%; }
+}
+
+table.box {
+    width: 100%;
+    tr {
+        width: 100%;
+        td {
+            height: 100px;
+        }
+    }
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
+
+
+.a_white {
+    a, a:visited, a:active {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    a:hover {
+        color: gray;
+        text-decoration: none;
+    }
+}
+
+
+a {
+    &, &:visited, &:active {
+        color: $blue;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: gray;
+        text-decoration: none;
+    }
+}
+
+
+p {
+    text-indent: 0px;
+    line-height: 1.3;
+
+    // padding-top: 1em;
+    margin-top: 1em;
+    margin-bottom: 0;
+
+    // &:first-of-type {
+    //     padding-top: 0;
+    // }
+
+    &.indent {
+        text-indent: 2em;
+    }
+
+    &.quote {
+        font-style: italic;
+        font-size: 0.8em;
+    }
+
+}
+
+p.no-margin-top { margin-top: 0; }
+
+
+.cursive {
+    font-family: 'Great Vibes', cursive;
+}
+
+
+
+// For Emails
+.obfuscate span {
+    display: none;
+}
+
+
+%image-norepeat {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*
+ * BODY
+ */
+
+body {
+
+    margin: 0;
+
+    color: #FFF;
+    background-color: black;
+
+    // padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    // Default background image
+    background-image: url(/images/bg/subtle_carbon.png);
+
+    // Background images for certain pages
+    &.index {
+        background-image: url(/images/chicago.jpg);
+        @extend %image-norepeat;
+    }
+
+    &.music {
+        background-image: url(/images/PICT6165_3_smaller.jpg);
+        @extend %image-norepeat;
+    }
+}
+
+
+// #div-title {
+//     padding: 30px 0 30px 0px;
+//     text-align: center;
+// }
+//
+// #title {
+//     font-size: 2.5em;
+// }
+// .subheading {
+//     font-size: 3em;
+// }
+
+// .subtitle {
+//     font-size: 2em;
+// }
+
+
+/*
+ * MENU ICONS
+ */
+
+$music-color: #FFA852;
+$code-color: #FF5273;
+$teaching-color: #D552FF;
+$pages-color: #3BBE3B;
+
+@mixin menu-icon($icon-type, $color, $size) {
+    &:hover {
+        border-bottom: 2px solid $color;
+    }
+
+    .icon {
+        margin-top: 0.5em;
+
+        width: $size + px;
+        height: $size + px;
+
+
+        border-radius: 50%;
+
+
+        background-image: url("/images/#{$icon-type}-icon.png");
+        background-size: $size/2 + px $size/2 + px;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        background-color: $color;
+    }
+}
+
+
+// @mixin menu-item($icon-type, $color) {
+//     &:hover {
+//         border-bottom: 2px solid $color;
+//     }
+//
+//     .menu-icon {
+//         @include menu-icon($icon-type, $color, $size);
+//     }
+// }
+
+// Create menu-item mixin like above, diff name
+
+@mixin icon-item($size) {
+    color: $white;
+
+    &.music > div { @include menu-icon("music", $music-color, $size); }
+    &.code > div { @include menu-icon("code", $code-color, $size); }
+    &.teaching > div { @include menu-icon("teaching", $teaching-color, $size); }
+    &.pages > div { @include menu-icon("pages", $pages-color, $size); }
+}
+
+// .menu-item {
+//     @include menu-item(32);
+// }
+
+
+/*
+ * Footer
+ */
+
+div.footer {
+    text-align: right;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+/*
+ * UTIL
+ */
+
+
+// Centering something in a smaller "box"
+.center-box {
+    width: 680px;
+    margin: auto;
+}
+
+/*
+ * UNIVERSAL
+ */
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2em;
+    padding-top: 0.5em;
+
+    a:hover {
+        border-bottom: 2px solid $white;
+    }
+}
+
+.div-title {
+    padding-bottom: 0.9em;
+    border-bottom: 2px solid $blue;
+    a {
+        color: $white;
+    }
+
+    a.menu-item {
+        @include icon-item(24);
+
+        padding-top: 0.9em;
+        text-align: center;
+        width: 50px;
+
+        > div {
+            font-size: 0.8em;
+        }
+    }
+
+    .icon {
+        margin: auto;
+    }
+
+}
+
+
+/*
+ * HOME
+ */
+
+
+#index {
+}
+
+
+#home-menu {
+
+
+    #social-media {
+        margin-top: 3em;
+        text-align: center;
+    }
+
+}
+
+
+
+
+a.list-item {
+    @include icon-item(32);
+
+    .right {
+        margin-left: 50px;
+    }
+
+
+    > div {
+        padding-top: 1em;
+        padding-bottom: 0.3em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+    p {
+        color: $lightgray;
+        padding: 0;
+        margin-top: 0.2em;
+        margin-bottom: 0;
+    }
+
+    .icon {
+        float: left;
+        margin-right: 1em;
+    }
+}
+
+
+
+/*
+ * Menu
+ */
+
+
+#menu {
+    text-align: center;
+    font-size: 2.4em;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        background: rgba(1,0,0,.7);
+    }
+
+    li {
+        display: inline-block;
+        list-style-type: none;
+        font-size: 0.5em;
+        vertical-align: middle;
+
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+}
+
+
+.padding10 {
+    padding: 10px;
+}
+
+
+.padding20 {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.content {
+    // margin-top: 1.3em;
+    // margin-left: 10px;
+    // margin-right: 10px;
+}
+
+
+
+/*
+ * MUSIC
+ */
+
+
+// body.music h3 {
+//     font-size: 3em;
+//     font-family: 'Great Vibes', cursive;
+//     font-weight: normal;
+//     margin: 0;
+//     padding-top: 15px;
+//     padding-bottom: 10px;
+// }
+//
+//
+// #music {
+//     background: rgba(0,0,0,.7);
+// }
+
+/* http://avexdesigns.com/responsive-youtube-embed/ */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+
+    iframe, object, embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.composer {
+    /* font-style: italic; */
+    font-size: 1.15em;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.piece {
+    padding-left: 50px;
+    text-indent: -30px;
+    padding-bottom: 3px;
+}
+
+#repertoire {
+    padding: 30px;
+
+    background: rgba(0,0,0,.7);
+}
+
+#repertoire .mvts {
+    padding-left: 30px;
+    font-size: 0.9em;
+}
+
+
+
+
+
+/*
+ * TECH
+ */
+
+#tech {
+    background: rgba(0,0,0,.7);
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding: 0 0 15px 0;
+        vertical-align: top;
+    }
+
+    img.thumb {
+        max-width: 160px;
+    }
+}
+
+.tech-title {
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.tech-lang {
+    font-size: 0.85em;
+}
+
+
+
+
+/*
+ * TEACHING
+ */
+
+// Teaching pages have different color scheme, except teaching index page
+body.teaching_class {
+    color: black;
+    background-color: white;
+    background-image: url("/images/linen-texture-bg.jpg");
+
+    h3 {
+        padding-top: 1em;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding-right: .5em;
+        padding-left: .5em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+
+        min-width: 6em;
+    }
+
+
+    tr:nth-child(odd) {
+        background-color: #DDD;
+    }
+
+    a {
+        &, &:visited, &:active {
+            color: red;
+        }
+    }
+}
+
+
+/*
+ * PAGES
+ */
+
+div.page-heading {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div.pages {
+    p {
+        // margin: 0;
+        // padding-top: 0.3em;
+    }
+    div {
+        // margin-top: 0;
+        // margin-bottom: 0;
+        // padding: 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    div.highlight {
+        font-size: 0.9em;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    code {
+        background: #272822;
+        color: #f8f8f2;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    // TODO: This is for sections, rename to something else later
+    div.h3 {
+        font-size: 1.1em;
+        line-height: 1.1em;
+        font-weight: bold;
+        margin-bottom: 0.2em;
+    }
+
+}
+
+
+
+.published, .tags {
+    font-style: italic;
+    // font-size: 0.9em;
+
+    a {
+        margin-left: 0.4em;
+    }
+}
+
+
+
+
+/*
+ * MOBILE
+ */
+
+// @media screen and (max-width: 768px) {
+// }
+
+@media screen and (max-width: 768px) {
+    .center-box {
+        width: 480px;
+    }
+
+    .box-2 {
+        width: $half;
+    }
+    .box-3 {
+        width: $half;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* For smaller screens, center occupies larger space */
+    // .center {
+    //     max-width: 100%;
+    // }
+
+    // Footer is centered on small screens
+    div.footer {
+        text-align: center;
+    }
+
+    .center-box {
+        max-width: 100%;
+    }
+
+    .box-2 {
+        width: $full;
+    }
+    .box-3 {
+        width: $half;
+
+        div.caption { min-height: 45%; }
+    }
+
+
+    .div-title {
+        a.menu-item {
+            padding-top: 1.3em; // increase top padding
+            width: 40px;
+        }
+    }
+
+
+
+    p {
+        text-indent: 0px;
+        line-height: 1.3;
+    }
+
+
+    // /* tech */
+    // img.thumb {
+    //     max-width: 96px;
+    // }
+    //
+    // .tech-title {
+    //     padding-top: 0px;
+    //     font-weight: bold;
+    // }
+}
+

@@ -1,0 +1,10 @@
+<div class="center-box">
+    <h3>
+        Pages with tag: <i><%= tag %></i>
+    </h3>
+
+    <% pages.each do |p|%>
+        <%= to_abstract_html(p) %>
+    <% end %>
+
+</div>

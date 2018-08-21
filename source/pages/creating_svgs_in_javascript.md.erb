@@ -1,0 +1,84 @@
+---
+
+title: Creating SVGs in Javascript
+created: 2018-08-04
+
+tags: [tech, javascript]
+abstract: " In the process of migrating one of my old Firefox extensions (github-buttons-mobile)
+to use the WebExtensions API, I found myself needing to create SVG elements
+programmatically in javascript. Shouldn't be that difficult, right?"
+
+---
+
+
+
+
+In the process of migrating one of my old Firefox extensions
+([github-buttons-mobile](https://github.com/seanyeh/github-buttons-mobile))
+to use the WebExtensions API, I found myself needing to create SVG elements
+programmatically in javascript. Shouldn't be that difficult, right?
+
+If you're familiar with adding elements to the DOM in javascript, the obvious
+choice would be to use `document.createElement`. For example, creating an
+anchor element could be done like:
+
+<%= code "javascript", %Q{
+// Create an <a> element
+var anchor = document.createElement("a");
+// Set href attribute
+anchor.setAttribute("href", "http://example.com");
+// Set link text
+anchor.appendChild(document.createTextNode("Example page"));
+}%>
+
+
+The curious thing is that if you use try to create an svg element with
+`document.createElement("svg")`, the generated html looks correct, but the svg
+element doesn't display.
+
+Turns out that SVG has its own
+[namespace](https://developer.mozilla.org/en-US/docs/Web/SVG/Namespaces_Crash_Course)
+and to create svg elements in javascript, you need to use
+`document.createElementNS`, passing the SVG namespace
+`"http://www.w3.org/2000/svg"` as the first argument.
+
+
+## Example
+
+In [github-buttons-mobile](https://github.com/seanyeh/github-buttons-mobile),
+I wanted to create the star from github, which is an svg element. If you look
+at the html source of any repository page on github, the svg star looks
+something like this:
+
+<%= code "html", %Q{
+<svg class="octicon octicon-star v-align-text-bottom"
+    viewBox="0 0 14 16" version="1.1"
+    width="14" height="16" aria-hidden="true">
+
+    <path fill-rule="evenodd"
+        d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14">
+    </path>
+
+</svg>
+}%>
+
+This is how I created the element in javascript:
+
+<%= code "javascript", %Q{
+let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svg.setAttribute("class", "octicon octicon-star");
+svg.setAttribute("viewBox", "0 0 14 16");
+svg.setAttribute("version", "1.1");
+svg.setAttribute("width", "24");
+svg.setAttribute("height", "16");
+svg.setAttribute("aria-hidden", "true");
+
+let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+path.setAttribute("fill-rule", "evenodd");
+path.setAttribute("d",
+    "M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14");
+
+svg.appendChild(path);
+}%>
+
+That's it!

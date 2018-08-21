@@ -1,0 +1,25 @@
+---
+title: Sean Yeh - Blog
+---
+
+<div class="center-box">
+    <h2>Blog</h2>
+
+    <p>
+    Below is a collection of short essays and thoughts I've written on music,
+    tech, and other interests.
+    </p>
+
+    <p>
+    <a href="feed.xml">
+        <img src="/images/rss.png" style="vertical-align:middle">&nbsp;rss feed
+    </a>
+    </p>
+
+    <h3>Posts</h3>
+
+    <% get_posts().each do |item| %>
+        <%= to_abstract_html(item) %>
+    <% end %>
+
+</div>

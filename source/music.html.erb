@@ -1,0 +1,61 @@
+---
+title: Sean Yeh - Music
+---
+
+
+<div class="center-box">
+    <div class="break"></div>
+    <img src="/images/music/seanyeh_piano.jpg" alt="Sean Yeh picture" width="100%">
+    <div class="break"></div>
+
+    <p>
+    A performing artist and a prizewinner of several international piano
+    competitions, I also enjoy experimenting with technology in creating
+    innovative multimedia performance experiences.
+    </p>
+
+    <p>
+    I'm currently an instructor of music theory and a doctoral candidate at
+    Northwestern University in piano performance. I also hold bachelors and
+    masters degrees from the Juilliard School.
+    </p>
+
+    <p>
+    Click <a href="#bio">here</a> for my full biography.
+    </p>
+
+
+    <h2 id="media-art">Media art and performance projects</h2>
+    <div class="box-container">
+        <%= gen_project_item("smashexperience", title:"Smash, the Multimedia Experience", desc: "Interactive video game recital") %>
+        <%= gen_project_item("kinectovertone", title:"Kinect + Overtone Project", desc: "Media art project") %>
+        <%= gen_project_item("recitalpal", title:"Recital Pal", desc: "Interactive recital program app for audience members") %>
+    </div>
+
+
+    <h2>Recordings</h2>
+
+    <%
+            videos = [
+                "91vECkNVJvA",
+                "ipXEdzuQYdQ",
+                "s1Rc1EgXALk",
+                "_PLbWlFHftI",
+                "IFRIrTFVtd4",
+                "jvGXL-3XGH0",
+        ]
+    %>
+    <div class="box-container">
+        <%= videos.map { |vid| gen_yt_item(vid) }.join("") %>
+    </div>
+
+    <p>
+    You can check out more videos on my
+    <a href="https://www.youtube.com/channel/UCrFi4x98f3WaVMFrm720DUA">YouTube</a> channel.
+    </p>
+
+    <div id="bio">
+    <h2>Biography</h2>
+<%= bio_to_html() %>
+    </div>
+</div>

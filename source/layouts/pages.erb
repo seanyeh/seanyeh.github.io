@@ -1,0 +1,26 @@
+<% wrap_layout :layout do %>
+<div class="center-box">
+    <h2>
+        <%= current_page.data.title %>
+    </h2>
+
+    <div class="published">
+        Published: <%= current_page.data.created %>
+    </div>
+
+    <div class="tags">
+        tags:
+        <% tag_anchors = current_page.data.tags.map do |tag| %>
+            <% "<a href=\"/pages/tags/#{tag}/\">#{tag}</a>" %>
+        <% end %>
+
+        <%= tag_anchors.join(",") %>
+    </div>
+
+    <div class="break"></div>
+
+
+    <div>
+        <%= yield %>
+    </div>
+<% end %>
