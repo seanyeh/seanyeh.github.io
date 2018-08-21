@@ -114,6 +114,9 @@ ready do
             p.data.tags and p.data.tags.include? tag
         end
 
+        # Sort pages, most recent first
+        pages.sort_by! {|item| item.data.created }.reverse!
+
         proxy "/pages/tags/#{tag}.html", "/pages/tag.html", :locals => {:tag => tag, :pages => pages}, :ignore => true
     end
 end
