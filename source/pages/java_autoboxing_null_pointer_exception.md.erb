@@ -1,0 +1,99 @@
+---
+title: Autoboxing and the NullPointerException Mystery
+
+created: 2018-08-26
+tags: [tech, java]
+abstract: "During one of my Java classes I teach during the summer, a student came up to me with a peculiar bug. 
+Below is a simplified version:"
+---
+
+During one of the Java classes I teach, a student came up to me with a
+peculiar bug. Below is a simplified version:
+
+<%= code "java", %Q{
+HashMap<String,Boolean> map = new HashMap<String,Boolean>();
+
+if (map.get("a") == true) // -> NullPointerException
+    // do something
+}%>
+
+The NullPointerException here seems odd. While the `== true` seemed
+superfluous, I initially thought this would work. Even if it didn't, I couldn't
+understand why this would give a NullPointerException.
+
+A NullPointerException occurs when you try to use a reference that hasn't been
+initialized yet  (its value is null), but the only reference used here is `map`, which
+was definitely initialized!
+
+
+I tried a few things:
+<%= code "java", %Q{
+System.out.println( map.get("a") );
+// -> null
+}%>
+
+As I expected, this gave a `null`.
+
+Then I tried:
+
+<%= code "java", %Q{
+System.out.println( null == true );
+// -> CompileError: Incomparable types: <null> and boolean
+}%>
+
+Ok, so I had forgotten that in Java, you can't compare two objects of different types.
+In some other languages, `null` is considered "falsy".
+
+But when I try:
+<%= code "java", %Q{
+System.out.println( map.get("a") == true )
+// -> NullPointerException
+}%>
+
+Where is the `NullPointerException` coming from?
+
+## The Culprit: Autoboxing and Unboxing
+
+Introduced in Java 1.5 (later called Java 5),
+[autoboxing and unboxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
+is the
+automatic conversion of primitives and their wrapper classes.
+
+Before Java 1.5, you had to manually convert the wrapper class to its primitive form by calling a specific function.
+For example, if you created an ArrayList of Integers, you would need to call
+the `intValue()` function on the Integer object to get the primitive value
+
+<%= code "java", %Q{
+int x = arr.get(0); // Wrong, will give you an error
+int x = arr.get(0).intValue(); // Correct!
+}%>
+
+With autoboxing/unboxing, Java will implicitly call these functions (such as
+`intValue`) from the wrapper classes when it notices you are trying to use
+the primitive value.
+
+
+Normally, `map.get(x)` will return a Boolean object, but will also return `null` if
+`x` is not found in the HashMap. Note that null is a valid value for a Boolean
+object (or any Java object)
+
+However, Java sees that I'm comparing a Boolean object with a boolean
+primitive, so it implicitly calls the Boolean object's `booleanValue()` function.
+
+Because `map.get(x)` returns null, Java is actually implicitly calling `booleanValue()` on the null object, hence the `NullPointerException`!
+
+## Solution
+
+The solution is to check if the object is `null` before performing a comparison
+
+<%= code "java", %Q{
+if( map.get("a") != null && map.get("a") == true )
+    // do something
+}%>
+
+or, more simply,
+
+<%= code "java", %Q{
+if( map.get("a") != null && map.get("a") )
+    // do something
+}%>
