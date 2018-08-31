@@ -6,7 +6,7 @@ created: 2018-08-14
 tags: [chicago pizza, food]
 ---
 
-![Beggars Pizza](chicago_pizza_beggars/beggars1.jpg)
+![Beggars Pizza](chicago_pizza/beggars1.jpg)
 
 
 ### Beggars Pizza
@@ -19,6 +19,6 @@ Chicago-style Deep Dish with thick, gooey cheese. The cornmeal crust
 is excellent — soft and chewy, and not too thick. Overall, one of the best
 pizzas I've had!
 
-![Beggars Pizza](chicago_pizza_beggars/beggars2.jpg)
+![Beggars Pizza](chicago_pizza/beggars2.jpg)
 
-![Beggars Pizza](chicago_pizza_beggars/beggars3.jpg)
+![Beggars Pizza](chicago_pizza/beggars3.jpg)
