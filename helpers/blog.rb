@@ -3,7 +3,8 @@ require "rss"
 # Blog/Pages
 
 def to_abstract_html(post)
-    title = "<div class=\"h3\">#{link_to(post.data.title, post.path)}</div>"
+    anchor = link_to(post.data.title, "/#{post.path}")
+    title = "<div class=\"h3\">#{anchor}</div>"
     created = "<span>#{post.data.created}</span>"
     tags = to_tags_html(post)
 
