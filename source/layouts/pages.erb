@@ -14,7 +14,8 @@
 
     <div class="tags">
         tags:
-        <% tag_anchors = current_page.data.tags.map do |tag| %>
+        <% tags = current_page.data.tags || [] %>
+        <% tag_anchors = tags.map do |tag| %>
             <% "<a href=\"/pages/tags/#{tag}/\">#{tag}</a>" %>
         <% end %>
 

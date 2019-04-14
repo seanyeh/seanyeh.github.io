@@ -117,17 +117,15 @@ ready do
         # Sort pages, most recent first
         pages.sort_by! {|item| item.data.created }.reverse!
 
-        proxy "/pages/tags/#{tag}.html", "/pages/tag.html", :locals => {:tag => tag, :pages => pages}, :ignore => true
+        proxy "/pages/tags/#{tag}.html", "/pages/tag.html", :locals => {:tag_name => tag, :pages => pages}, :ignore => true
     end
 end
 
 
 # Pages
-# ignore "pages/tag.html"
-page "pages/*.html", :layout => :pages
-
 page "pages/tags/*.html", :layout => :layout
 
+page "pages/*.html", :layout => :pages
 
 proxy "pages.html", "pages_index.html", :ignore => true
 
