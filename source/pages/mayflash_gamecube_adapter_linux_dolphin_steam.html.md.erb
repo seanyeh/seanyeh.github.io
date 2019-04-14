@@ -1,0 +1,73 @@
+---
+
+title: Mayflash Gamecube controller adapter + Linux + Dolphin/Steam
+created: 2019-04-14
+
+tags: [gaming, linux, tech]
+abstract: "This is a short guide on how to set up the Mayflash gamecube adapter on Linux to work with Dolphin emulator and Steam."
+
+---
+
+### Introduction
+
+This is a short guide on how to set up the Mayflash gamecube adapter on Linux
+to work with Dolphin emulator and Steam.
+
+For this guide, I am on Arch Linux and using the 4-port version of the
+[Mayflash gamecube adapter](https://www.amazon.com/Mayflash-GameCube-Controller-Adapter-Switch/dp/B00RSXRLUE),
+which I bought on Amazon for around $20.
+
+
+### Setup
+
+Paste the following into `/etc/udev/rules.d/51-gcadapter.rules`:
+
+<%= code "text", %Q{
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"
+}%>
+
+Then, install [wii-u-gc-adapter](https://github.com/ToadKing/wii-u-gc-adapter).
+(There is a package in the AUR)
+
+After installing, run
+`sudo modprobe uinput`
+
+Now, you can run the adapter with
+`wii-u-gc-adapter`
+
+
+### Dolphin
+
+Make sure the Mayflash adapter is set to "Wii U" setting. In Dolphin, go to
+`Controller Setings`, set the controller to "GameCube Adapter for Wii U". Your
+controller should now work in Dolphin.
+
+
+### Steam
+
+Make sure the Mayflash adapter is set to "PC" setting. If you haven't already, run `wii-u-gc-adapter`
+
+In Steam, enter Big Picture mode, and then go to `Settings` -> `Controller Settings`.
+You should see 4 "unregistered" controllers listed under "Detected
+Controllers". Select the first one, and set your preferred keys.
+You may need to plug the controller into the 4th port of the adapter when
+setting up the keys (I have no idea why). Note that you will need to leave some
+keys unmapped since gamecube controllers don't have enough buttons.
+
+If you now see "Xbox One Controller" listed under "Detected Controllers" in
+Controller Settings, then you're good to go!
+
+Plugging in more controllers should work just fine. I have tested with two
+controllers: an original Nintendo Gamecube controller and a 3rd party (Gamestop
+brand) controller
+
+
+### Troubleshooting
+
+If you're having trouble getting the Mayflash adapter or controllers to be
+recognized, unplugging and replugging in the adapter seems to fix that.
+
+
+### References
+
+[Dolphin docs](https://dolphin-emu.org/docs/guides/how-use-official-gc-controller-adapter-wii-u/#Linux)
