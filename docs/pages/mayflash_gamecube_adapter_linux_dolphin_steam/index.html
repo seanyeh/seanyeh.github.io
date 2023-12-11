@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Sean Yeh, Pianist">
+
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+    <link href="/stylesheets/normalize.css" rel="stylesheet" />
+
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link href="/stylesheets/monokai.css" rel="stylesheet" />
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Mayflash Gamecube controller adapter + Linux + Dolphin/Steam</title>
+
+    <!-- Open graph protocol -->
+    <meta property="og:description" content="Sean Yeh"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54765658-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-54765658-3');
+    </script>
+
+  </head>
+
+
+  <body class="pages pages_mayflash_gamecube_adapter_linux_dolphin_steam pages_mayflash_gamecube_adapter_linux_dolphin_steam_index">
+      
+    <div class="center-box div-title">
+
+            <div class="title-menu float-right">
+
+                    <a class="menu-item float-right pages" href="/pages/">
+                        <div>
+                            <div class="icon"></div>
+                            blog
+                        </div>
+                    </a>
+                    <a class="menu-item float-right teaching" href="/teaching/">
+                        <div>
+                            <div class="icon"></div>
+                            teach
+                        </div>
+                    </a>
+                    <a class="menu-item float-right code" href="/code/">
+                        <div>
+                            <div class="icon"></div>
+                            code
+                        </div>
+                    </a>
+                    <a class="menu-item float-right music" href="/music/">
+                        <div>
+                            <div class="icon"></div>
+                            music
+                        </div>
+                    </a>
+
+            </div>
+
+          <div class="title">
+              <a href="/">
+                  Sean Yeh
+              </a>
+          </div>
+
+
+    </div>
+
+    <div class="pages pages_mayflash_gamecube_adapter_linux_dolphin_steam pages_mayflash_gamecube_adapter_linux_dolphin_steam_index content">
+        <div class="center-box">
+    <p>
+    <a href="/pages">← back to blog</a>
+    </p>
+
+    <h2>
+        Mayflash Gamecube controller adapter + Linux + Dolphin/Steam
+    </h2>
+
+    <div class="published">
+        Published: 2019-04-14
+    </div>
+
+    <div class="tags">
+        tags:
+
+        <a href="/pages/tags/gaming/">gaming</a>,<a href="/pages/tags/linux/">linux</a>,<a href="/pages/tags/tech/">tech</a>
+    </div>
+
+    <div class="break"></div>
+
+
+    <div>
+        <h3 id="introduction">Introduction</h3>
+
+<p>This is a short guide on how to set up the Mayflash gamecube adapter on Linux
+to work with Dolphin emulator and Steam.</p>
+
+<p>For this guide, I am on Arch Linux and using the 4-port version of the
+<a href="https://www.amazon.com/Mayflash-GameCube-Controller-Adapter-Switch/dp/B00RSXRLUE">Mayflash gamecube adapter</a>,
+which I bought on Amazon for around $20.</p>
+
+<h3 id="setup">Setup</h3>
+
+<p>Paste the following into <code>/etc/udev/rules.d/51-gcadapter.rules</code>:</p>
+
+<div class="highlight"><pre><span></span>SUBSYSTEM==&quot;usb&quot;, ENV{DEVTYPE}==&quot;usb_device&quot;, ATTRS{idVendor}==&quot;057e&quot;, ATTRS{idProduct}==&quot;0337&quot;, MODE=&quot;0666&quot;
+</pre></div>
+
+<p>Then, install <a href="https://github.com/ToadKing/wii-u-gc-adapter">wii-u-gc-adapter</a>.
+(There is a package in the AUR)</p>
+
+<p>After installing, run
+<code>sudo modprobe uinput</code></p>
+
+<p>Now, you can run the adapter with
+<code>wii-u-gc-adapter</code></p>
+
+<h3 id="dolphin">Dolphin</h3>
+
+<p>Make sure the Mayflash adapter is set to "Wii U" setting. In Dolphin, go to
+<code>Controller Setings</code>, set the controller to "GameCube Adapter for Wii U". Your
+controller should now work in Dolphin.</p>
+
+<h3 id="steam">Steam</h3>
+
+<p>Make sure the Mayflash adapter is set to "PC" setting. If you haven't already, run <code>wii-u-gc-adapter</code></p>
+
+<p>In Steam, enter Big Picture mode, and then go to <code>Settings</code> -&gt; <code>Controller Settings</code>.
+You should see 4 "unregistered" controllers listed under "Detected
+Controllers". Select the first one, and set your preferred keys.
+You may need to plug the controller into the 4th port of the adapter when
+setting up the keys (I have no idea why). Note that you will need to leave some
+keys unmapped since gamecube controllers don't have enough buttons.</p>
+
+<p>If you now see "Xbox One Controller" listed under "Detected Controllers" in
+Controller Settings, then you're good to go!</p>
+
+<p>Plugging in more controllers should work just fine. I have tested with two
+controllers: an original Nintendo Gamecube controller and a 3rd party (Gamestop
+brand) controller</p>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<p>If you're having trouble getting the Mayflash adapter or controllers to be
+recognized, unplugging and replugging in the adapter seems to fix that.</p>
+
+<h3 id="references">References</h3>
+
+<p><a href="https://dolphin-emu.org/docs/guides/how-use-official-gc-controller-adapter-wii-u/#Linux">Dolphin docs</a></p>
+
+    </div>
+
+
+
+        <div class="center-box">
+            <div class="footer">
+                Contact: <span class="obfuscate">sean<span>NOSPAM</span>@<span>NOSPAM</span>seanyeh.com</span>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>

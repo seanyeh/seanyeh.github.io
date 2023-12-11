@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Sean Yeh, Pianist">
+
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+    <link href="/stylesheets/normalize.css" rel="stylesheet" />
+
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link href="/stylesheets/monokai.css" rel="stylesheet" />
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Revisiting the Monty Hall Problem with Elm</title>
+
+    <!-- Open graph protocol -->
+    <meta property="og:description" content="Sean Yeh"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54765658-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-54765658-3');
+    </script>
+
+  </head>
+
+
+  <body class="pages pages_revisiting_monty_hall_problem_elm pages_revisiting_monty_hall_problem_elm_index">
+      
+    <div class="center-box div-title">
+
+            <div class="title-menu float-right">
+
+                    <a class="menu-item float-right pages" href="/pages/">
+                        <div>
+                            <div class="icon"></div>
+                            blog
+                        </div>
+                    </a>
+                    <a class="menu-item float-right teaching" href="/teaching/">
+                        <div>
+                            <div class="icon"></div>
+                            teach
+                        </div>
+                    </a>
+                    <a class="menu-item float-right code" href="/code/">
+                        <div>
+                            <div class="icon"></div>
+                            code
+                        </div>
+                    </a>
+                    <a class="menu-item float-right music" href="/music/">
+                        <div>
+                            <div class="icon"></div>
+                            music
+                        </div>
+                    </a>
+
+            </div>
+
+          <div class="title">
+              <a href="/">
+                  Sean Yeh
+              </a>
+          </div>
+
+
+    </div>
+
+    <div class="pages pages_revisiting_monty_hall_problem_elm pages_revisiting_monty_hall_problem_elm_index content">
+        <div class="center-box">
+    <p>
+    <a href="/pages">← back to blog</a>
+    </p>
+
+    <h2>
+        Revisiting the Monty Hall Problem with Elm
+    </h2>
+
+    <div class="published">
+        Published: 2018-09-24
+    </div>
+
+    <div class="tags">
+        tags:
+
+        <a href="/pages/tags/probability/">probability</a>,<a href="/pages/tags/tech/">tech</a>,<a href="/pages/tags/elm/">elm</a>
+    </div>
+
+    <div class="break"></div>
+
+
+    <div>
+        <h2 id="monty-hall-variant">Monty Hall Variant</h2>
+
+<p>I came across the
+<a href="https://en.wikipedia.org/wiki/Monty_Hall_problem">Monty Hall Problem</a>
+again the other day, and thought of a variant to the original problem: what if,
+after the player chooses the initial door, the host opens a door randomly? Now, if
+the host accidentally opens the door with the car, then the problem becomes
+pointless. But, let's say that if the host opens a random door, <strong>given</strong> it's
+a goat, is it still advantageous to swap choices? This is a case of
+<a href="https://en.wikipedia.org/wiki/Conditional_probability">conditional probability</a>,
+and I suspect that this is part of the reason why the solution to the original
+problem seems so counter-intuitive.</p>
+
+<p>It turns out that this variant (among many many others) has been discussed
+before, and the consensus is that the chance of winning becomes 50-50. However,
+I still went ahead and built a simulation to see the results for myself.</p>
+
+<h2 id="first-steps-in-elm">First steps in Elm</h2>
+
+<p>I took this opportunity to dive into a programming language that I've been
+interested in for a while: <a href="http://elm-lang.org/">Elm</a>. After a quiet 2 years
+(almost) of no major releases or posts on their official blog, Elm finally came
+out with version 0.19 last month.</p>
+
+<p>Despite having some experience with functional programming languages (OCaml,
+Lisp), I initially found it challenging to wrap my mind around some
+of the concepts in Elm, such as subscriptions, commands, and
+<a href="https://guide.elm-lang.org/effects/random.html">random number generation</a>.
+I also have noticed that, as of this writing, a <strong>lot</strong> of resources online are
+outdated, including <a href="https://elm-tutorial.org">https://elm-tutorial.org</a>,
+making the learning process a bit more difficult.
+(Even all the <code>elm</code> build commands have changed!).</p>
+
+<p>Nevertheless, I was able to get through the basics, and wrote the
+<a href="https://seanyeh.github.io/monty-elm/">simulation</a>.
+I look forward to working with Elm more in the future!</p>
+
+
+    </div>
+
+
+
+        <div class="center-box">
+            <div class="footer">
+                Contact: <span class="obfuscate">sean<span>NOSPAM</span>@<span>NOSPAM</span>seanyeh.com</span>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Sean Yeh, Pianist">
+
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+    <link href="/stylesheets/normalize.css" rel="stylesheet" />
+
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link href="/stylesheets/monokai.css" rel="stylesheet" />
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Autoboxing and the NullPointerException Mystery</title>
+
+    <!-- Open graph protocol -->
+    <meta property="og:description" content="Sean Yeh"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54765658-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-54765658-3');
+    </script>
+
+  </head>
+
+
+  <body class="pages pages_java_autoboxing_null_pointer_exception pages_java_autoboxing_null_pointer_exception_index">
+      
+    <div class="center-box div-title">
+
+            <div class="title-menu float-right">
+
+                    <a class="menu-item float-right pages" href="/pages/">
+                        <div>
+                            <div class="icon"></div>
+                            blog
+                        </div>
+                    </a>
+                    <a class="menu-item float-right teaching" href="/teaching/">
+                        <div>
+                            <div class="icon"></div>
+                            teach
+                        </div>
+                    </a>
+                    <a class="menu-item float-right code" href="/code/">
+                        <div>
+                            <div class="icon"></div>
+                            code
+                        </div>
+                    </a>
+                    <a class="menu-item float-right music" href="/music/">
+                        <div>
+                            <div class="icon"></div>
+                            music
+                        </div>
+                    </a>
+
+            </div>
+
+          <div class="title">
+              <a href="/">
+                  Sean Yeh
+              </a>
+          </div>
+
+
+    </div>
+
+    <div class="pages pages_java_autoboxing_null_pointer_exception pages_java_autoboxing_null_pointer_exception_index content">
+        <div class="center-box">
+    <p>
+    <a href="/pages">← back to blog</a>
+    </p>
+
+    <h2>
+        Autoboxing and the NullPointerException Mystery
+    </h2>
+
+    <div class="published">
+        Published: 2018-08-26
+    </div>
+
+    <div class="tags">
+        tags:
+
+        <a href="/pages/tags/tech/">tech</a>,<a href="/pages/tags/java/">java</a>
+    </div>
+
+    <div class="break"></div>
+
+
+    <div>
+        <p>During one of the Java classes I teach, a student came up to me with a
+peculiar bug. Below is a simplified version:</p>
+
+<div class="highlight"><pre><span></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Boolean</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// -&gt; NullPointerException</span>
+<span class="w">    </span><span class="c1">// do something</span>
+</pre></div>
+
+<p>The NullPointerException here seems odd. While the <code>== true</code> seemed
+superfluous, I initially thought this would work. Even if it didn't, I couldn't
+understand why this would give a NullPointerException.</p>
+
+<p>A NullPointerException occurs when you try to use a reference that hasn't been
+initialized yet  (its value is null), but the only reference used here is <code>map</code>, which
+was definitely initialized!</p>
+
+<p>I tried a few things:</p>
+<div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="c1">// -&gt; null</span>
+</pre></div>
+
+<p>As I expected, this gave a <code>null</code>.</p>
+
+<p>Then I tried:</p>
+
+<div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">);</span>
+<span class="c1">// -&gt; CompileError: Incomparable types: &lt;null&gt; and boolean</span>
+</pre></div>
+
+<p>Ok, so I had forgotten that in Java, you can't compare two objects of different types.
+In some other languages, <code>null</code> is considered "falsy".</p>
+
+<p>But when I try:</p>
+<div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">)</span>
+<span class="c1">// -&gt; NullPointerException</span>
+</pre></div>
+
+<p>Where is the <code>NullPointerException</code> coming from?</p>
+
+<h2 id="the-culprit-autoboxing-and-unboxing">The Culprit: Autoboxing and Unboxing</h2>
+
+<p>Introduced in Java 1.5 (later called Java 5),
+<a href="https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html">autoboxing and unboxing</a>
+is the
+automatic conversion of primitives and their wrapper classes.</p>
+
+<p>Before Java 1.5, you had to manually convert the wrapper class to its primitive form by calling a specific function.
+For example, if you created an ArrayList of Integers, you would need to call
+the <code>intValue()</code> function on the Integer object to get the primitive value</p>
+
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// Wrong, will give you an error</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">intValue</span><span class="p">();</span><span class="w"> </span><span class="c1">// Correct!</span>
+</pre></div>
+
+<p>With autoboxing/unboxing, Java will implicitly call these functions (such as
+<code>intValue</code>) from the wrapper classes when it notices you are trying to use
+the primitive value.</p>
+
+<p>Normally, <code>map.get(x)</code> will return a Boolean object, but will also return <code>null</code> if
+<code>x</code> is not found in the HashMap. Note that null is a valid value for a Boolean
+object (or any Java object)</p>
+
+<p>However, Java sees that I'm comparing a Boolean object with a boolean
+primitive, so it implicitly calls the Boolean object's <code>booleanValue()</code> function.</p>
+
+<p>Because <code>map.get(x)</code> returns null, Java is actually implicitly calling <code>booleanValue()</code> on the null object, hence the <code>NullPointerException</code>!</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>The solution is to check if the object is <code>null</code> before performing a comparison</p>
+
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// do something</span>
+</pre></div>
+
+<p>or, more simply,</p>
+
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// do something</span>
+</pre></div>
+
+
+    </div>
+
+
+
+        <div class="center-box">
+            <div class="footer">
+                Contact: <span class="obfuscate">sean<span>NOSPAM</span>@<span>NOSPAM</span>seanyeh.com</span>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>

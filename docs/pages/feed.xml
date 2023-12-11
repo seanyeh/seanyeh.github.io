@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Sean Yeh - Blog</title>
+    <link>https://seanyeh.com/pages</link>
+    <description>Short essays and thoughts</description>
+    <item>
+      <title>Fixing kernel hangs on Ryzen 2200g + Vega 8 graphics on Linux</title>
+      <link>https://seanyeh.com/pages/fixing_kernel_hang_ryzen_2200g_vega_linux/</link>
+      <description>I recently built a cheap gaming pc with the Ryzen 2200g processor with Vega 8 graphics. It worked well for many things, but for certain games (or totally randomly), the kernel would hang... &lt;a href=&quot;https://seanyeh.com/pages/fixing_kernel_hang_ryzen_2200g_vega_linux/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 -0500</pubDate>
+      <dc:date>2019-07-20T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Mayflash Gamecube controller adapter + Linux + Dolphin/Steam</title>
+      <link>https://seanyeh.com/pages/mayflash_gamecube_adapter_linux_dolphin_steam/</link>
+      <description>This is a short guide on how to set up the Mayflash gamecube adapter on Linux to work with Dolphin emulator and Steam.... &lt;a href=&quot;https://seanyeh.com/pages/mayflash_gamecube_adapter_linux_dolphin_steam/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sun, 14 Apr 2019 00:00:00 -0500</pubDate>
+      <dc:date>2019-04-14T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>You're doing it wrong: unix tools</title>
+      <link>https://seanyeh.com/pages/youre_doing_it_wrong_unix_tools/</link>
+      <description>You're doing it wrong: unix tools... &lt;a href=&quot;https://seanyeh.com/pages/youre_doing_it_wrong_unix_tools/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 -0600</pubDate>
+      <dc:date>2019-01-02T00:00:00-06:00</dc:date>
+    </item>
+    <item>
+      <title>Back to the Books</title>
+      <link>https://seanyeh.com/pages/back_to_the_books/</link>
+      <description>I've recently been getting back into contributing to open source software, and I almost forgot how daunting exploring a huge, unfamiliar codebase can be.... &lt;a href=&quot;https://seanyeh.com/pages/back_to_the_books/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 -0600</pubDate>
+      <dc:date>2018-12-29T00:00:00-06:00</dc:date>
+    </item>
+    <item>
+      <title>Revisiting the Monty Hall Problem with Elm</title>
+      <link>https://seanyeh.com/pages/revisiting_monty_hall_problem_elm/</link>
+      <description>Revisiting the Monty Hall Problem with Elm... &lt;a href=&quot;https://seanyeh.com/pages/revisiting_monty_hall_problem_elm/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Mon, 24 Sep 2018 00:00:00 -0500</pubDate>
+      <dc:date>2018-09-24T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Autoboxing and the NullPointerException Mystery</title>
+      <link>https://seanyeh.com/pages/java_autoboxing_null_pointer_exception/</link>
+      <description>During one of my Java classes I teach during the summer, a student came up to me with a peculiar bug. Below is a simplified version:... &lt;a href=&quot;https://seanyeh.com/pages/java_autoboxing_null_pointer_exception/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 -0500</pubDate>
+      <dc:date>2018-08-26T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Shell tips: ln</title>
+      <link>https://seanyeh.com/pages/shell_tips_ln/</link>
+      <description>A simple way to remember how to use the &quot;ln&quot; command... &lt;a href=&quot;https://seanyeh.com/pages/shell_tips_ln/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 -0500</pubDate>
+      <dc:date>2018-08-20T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Creating SVGs in Javascript</title>
+      <link>https://seanyeh.com/pages/creating_svgs_in_javascript/</link>
+      <description> In the process of migrating one of my old Firefox extensions (github-buttons-mobile) to use the WebExtensions API, I found myself needing to create SVG elements programmatically in javascript. Shouldn't be that difficult, right?... &lt;a href=&quot;https://seanyeh.com/pages/creating_svgs_in_javascript/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 -0500</pubDate>
+      <dc:date>2018-08-04T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Alkan's Triple Sharp</title>
+      <link>https://seanyeh.com/pages/alkans_triple_sharp/</link>
+      <description>Here is the infamous excerpt from Charles-Valentin Alkan's Concerto for Solo Piano, Op. 39, No. 10 (mvt. 3). The triple sharp... &lt;a href=&quot;https://seanyeh.com/pages/alkans_triple_sharp/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 -0500</pubDate>
+      <dc:date>2018-07-28T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Free Food</title>
+      <link>https://seanyeh.com/pages/freefood/</link>
+      <description>Everyone knows that college/university tuition is absurdly high in the US... &lt;a href=&quot;https://seanyeh.com/pages/freefood/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Thu, 26 Jan 2017 00:00:00 -0600</pubDate>
+      <dc:date>2017-01-26T00:00:00-06:00</dc:date>
+    </item>
+    <item>
+      <title>2017</title>
+      <link>https://seanyeh.com/pages/2017/</link>
+      <description>One of my New Year's resolutions for 2017 is to start a blog... &lt;a href=&quot;https://seanyeh.com/pages/2017/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
+      <dc:date>2017-01-01T00:00:00-06:00</dc:date>
+    </item>
+  </channel>
+</rss>

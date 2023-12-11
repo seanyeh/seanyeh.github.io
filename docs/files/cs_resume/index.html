@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    </head>
+    <style>
+
+.block-group,.block,.block-group:after,.block:after,.block-group:before,.block:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.block-group{*zoom:1}
+.block-group:before,.block-group:after{display:table;content:"";line-height:0}
+.block-group:after{clear:both}
+.block-group{list-style-type:none;padding:0;margin:0}
+.block-group>.block-group{clear:none;float:left;margin:0 !important}
+.block{float:left;width:100%}
+
+        @page { size: Letter; margin: 1cm }
+
+body {
+    /* font-family: Inconsolata, sans-serif; */
+    font-family: sans-serif;
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+
+    font-size: 0.7em;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 0.3em;
+}
+
+h2 {
+    margin-top: 0;
+    padding-top: 0;
+    padding-right: 1em;
+    font-size: 1.4em;
+}
+
+h3 {
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-top: 0.2em;
+    margin-bottom: 0;
+    padding: 0;
+    font-style: italic;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+
+
+#heading {
+    /* Margin below heading */
+    margin-bottom: 1.5em;
+}
+
+.obfuscate span {
+    display: none;
+}
+
+#heading-right {
+    text-align: right;
+    margin-top: 1em;
+}
+
+
+.dates {
+    width: 33%;
+    text-align: right;
+    margin-top: .5em;
+}
+
+.url {
+    width: 49%;
+    text-align: right;
+    margin-top: .5em;
+}
+
+.right {
+    text-align: right;
+    margin-top: .5em;
+}
+
+.col15 {
+    width: 15%;
+}
+
+.col85{
+    width: 85%;
+}
+
+.col33{
+    width: 33%;
+}
+.col60{
+    width: 60%;
+}
+
+.col66{
+    width: 66%;
+}
+
+.col20{
+    width: 20%;
+}
+
+.col40{
+    width: 40%;
+}
+
+.col50 {
+    width: 50%;
+}
+
+.col80{
+    width: 80%;
+}
+
+
+.col50 {
+    width: 50%;
+}
+
+.section {
+    /* border-left: solid 1px black; */
+    padding-left: 1em;
+}
+
+/* NEW STUFF: FLEXBOX */
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.flex-left {
+    align-self: flex-start;
+}
+
+.flex-right {
+    align-self: flex-end;
+}
+
+/* .desctest { */
+/*     border: 1px solid blue; */
+/* } */
+
+    </style>
+    <body>
+        
+        <div id="heading" class="block-group">
+            <div class="block col66">
+                <h1>Sean Yeh</h1>
+                <div class='desctest'>
+                    Software Developer, Free Software Enthusiast, and Musician
+                </div>
+            </div>
+
+            <div id="heading-right" class="block col33">
+                <div>
+                    <a href="https://seanyeh.com">seanyeh.com</a>
+                </div>
+                <div>
+                    <a href="https://github.com/seanyeh">github.com/seanyeh</a>
+                </div>
+
+                <div>
+                    <span class="obfuscate">hi [at] seanyeh.co<span>NOSPAM</span>m</span>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+        
+        <div class="block-group">
+            <div class="block col20">
+                <h2>Skills</h2>
+            </div>
+            <div class="block col80 section">
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+
+                        <h3 class="block col50">Languages/Tools</h3>
+                        <h4 class="block url"><a href="http://"></a></h4>
+
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Languages/Tools</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'></h4>
+                    <ul>
+                    
+                    <li>
+                        Python, Java, Javascript, Typescript, HTML/CSS/SASS, Shell
+                    </li>
+                    
+                    <li>
+                        Flask, Node.js, mithril.js, webpack, git, Linux
+                    </li>
+                    
+                    <li>
+                        Working knowledge of several other languages (Ruby, OCaml, Lua, Clojure) <br>and libraries/tools (Pandas, Numpy, Express, AngularJS, Ionic, MongoDB)
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- Don't display hr after last section -->
+         <hr/> 
+
+
+        
+        <div class="block-group">
+            <div class="block col20">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="block col80 section">
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">Computer Science Instructor</h3>
+                        <h4 class="block dates">Summer 2017, 2018</h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Computer Science Instructor</h3> -->
+                    <!--     <h4 class="flex&#45;right">Summer 2017, 2018</h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Northwestern University, Center for Talent Development</h4>
+                    <ul>
+                    
+                    <li>
+                        Taught Java Programming Honors to gifted middle/high school students
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">Software Developer / Intern</h3>
+                        <h4 class="block dates">Jun 2013 - Jun 2014</h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Software Developer / Intern</h3> -->
+                    <!--     <h4 class="flex&#45;right">Jun 2013 - Jun 2014</h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Sailthru</h4>
+                    <ul>
+                    
+                    <li>
+                        Built web platform to display/interact with real-time data <i>(Node, d3.js, Socket.IO)</i>
+                    </li>
+                    
+                    <li>
+                        Developed tools for data wrangling and analysis <i>(Python, pandas, scikit-learn)</i>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">HackNY Fellow / Mentor</h3>
+                        <h4 class="block dates">Summer 2013, 2014</h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">HackNY Fellow / Mentor</h3> -->
+                    <!--     <h4 class="flex&#45;right">Summer 2013, 2014</h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Summer internship program for college students interested in the NY tech scene</h4>
+                    <ul>
+                    
+                    <li>
+                        Mentored ~30 fellows, visited startups, and organized outings and hackathons
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- Don't display hr after last section -->
+         <hr/> 
+
+
+        
+        <div class="block-group">
+            <div class="block col20">
+                <h2>Side Projects</h2>
+            </div>
+            <div class="block col80 section">
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+
+                        <h3 class="block col50">ClefHeroes</h3>
+                        <h4 class="block url"><a href="http://github.com/seanyeh/ClefHeroes">github.com/seanyeh/ClefHeroes</a></h4>
+
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">ClefHeroes</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'></h4>
+                    <ul>
+                    
+                    <li>
+                        Educational music game for Android, available on Google Play <i>(Java, libGDX)</i>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+
+                        <h3 class="block col50">NUEvents</h3>
+                        <h4 class="block url"><a href="http://nuevents.seanyeh.com">nuevents.seanyeh.com</a></h4>
+
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">NUEvents</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'></h4>
+                    <ul>
+                    
+                    <li>
+                        REST API to search Northwestern University's events <i>(Python, Flask, TinyDB)</i>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+
+                        <h3 class="block col50">Shelley-Lang</h3>
+                        <h4 class="block url"><a href="http://shelley.seanyeh.com">shelley.seanyeh.com</a></h4>
+
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Shelley-Lang</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'></h4>
+                    <ul>
+                    
+                    <li>
+                        Python-like language, compiles to a minimal subset of Unix Shell <i>(OCaml, Shell)</i>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+
+                        <h3 class="block col50">Vibreoffice</h3>
+                        <h4 class="block url"><a href="http://github.com/seanyeh/vibreoffice">github.com/seanyeh/vibreoffice</a></h4>
+
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Vibreoffice</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'></h4>
+                    <ul>
+                    
+                    <li>
+                        Vi-mode plugin for LibreOffice/OpenOffice. 250+ ⭐'s on GitHub.
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+
+                        <h3 class="block col50">Composer Predictor</h3>
+                        <h4 class="block url"><a href="http://github.com/seanyeh/composer-predictor">github.com/seanyeh/composer-predictor</a></h4>
+
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Composer Predictor</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'></h4>
+                    <ul>
+                    
+                    <li>
+                        Machine learning to predict the composer of a musical piece <i>(Python, scikit-learn)</i>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Author of several plugins for vim, firefox, chrome, and other apps.<br> Have contributed to open source software such as <b>Musescore</b> and <b>pandas</b>.
+</h4>
+                    <ul>
+                    
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- Don't display hr after last section -->
+         <hr/> 
+
+
+        
+        <div class="block-group">
+            <div class="block col20">
+                <h2>Awards and Talks</h2>
+            </div>
+            <div class="block col80 section">
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">ITA Tech Challenge National Finalist</h3>
+                        <h4 class="block dates"></h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">ITA Tech Challenge National Finalist</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Top 50 finalist (out of 600) in the 2017 ITA Tech Challenge Programming Competition.</h4>
+                    <ul>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">WildHacks Hackathon (Best Venmo Hack)</h3>
+                        <h4 class="block dates"></h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">WildHacks Hackathon (Best Venmo Hack)</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Developed <a href="https://github.com/seanyeh/FriendFS">FriendFS</a>, a FUSE filesystem that allows you to send emails and money to friends by using the standard Unix I/O tools (with Mailjet and Venmo APIs).
+</h4>
+                    <ul>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">Tech talk at Juilliard</h3>
+                        <h4 class="block dates"></h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Tech talk at Juilliard</h3> -->
+                    <!--     <h4 class="flex&#45;right"></h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Gave a seminar at Juilliard, "Introduction to Computer Programming in Javascript" <a href="https://github.com/seanyeh/Juilliard-Intro-Computer-Programming">(Slides)</a>
+</h4>
+                    <ul>
+                    
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- Don't display hr after last section -->
+         <hr/> 
+
+
+        
+        <div class="block-group">
+            <div class="block col20">
+                <h2>Education</h2>
+            </div>
+            <div class="block col80 section">
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">Northwestern University</h3>
+                        <h4 class="block dates">2014 - 2018</h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Northwestern University</h3> -->
+                    <!--     <h4 class="flex&#45;right">2014 - 2018</h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Doctorate of Musical Arts</h4>
+                    <ul>
+                    
+                    <li>
+                        Developed app to facilitate audience participation in concerts for thesis,<br> <i>"Exploring new mediums of musical performance through technology"</i>
+                    </li>
+                    
+                    <li>
+                        <b>Machine Learning, Network Security, Engineering Entrepreneurship</b>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">Columbia University</h3>
+                        <h4 class="block dates">2010 - 2014</h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">Columbia University</h3> -->
+                    <!--     <h4 class="flex&#45;right">2010 - 2014</h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Exchange program with Juilliard, coursework equivalent to CS major</h4>
+                    <ul>
+                    
+                    <li>
+                        <b>Artificial Intelligence, Compilers, CS Theory, Computer Systems</b>
+                    </li>
+                    
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="block-group">
+
+                    
+
+                    <!-- HACK (once i can find a good pdf printer with flexbox
+                    support, then i can use flexbox. until then.... :( -->
+                        
+                        <h3 class="block col66">The Juilliard School</h3>
+                        <h4 class="block dates">2009 - 2014</h4>
+                        
+
+                    <!-- <div class="flex&#45;row"> -->
+                    <!--     <h3 class="flex&#45;left">The Juilliard School</h3> -->
+                    <!--     <h4 class="flex&#45;right">2009 - 2014</h4> -->
+                    <!-- </div> -->
+
+                    
+
+                    </div>
+                    <h4 class='desctest'>Bachelor and Master of Music in Piano Performance</h4>
+                    <ul>
+                    
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- Don't display hr after last section -->
+        
+
+
+        
+    </body>
+</html>

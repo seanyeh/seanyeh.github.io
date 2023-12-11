@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Sean Yeh, Pianist">
+
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+    <link href="/stylesheets/normalize.css" rel="stylesheet" />
+
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link href="/stylesheets/monokai.css" rel="stylesheet" />
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>You're doing it wrong: unix tools</title>
+
+    <!-- Open graph protocol -->
+    <meta property="og:description" content="Sean Yeh"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54765658-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-54765658-3');
+    </script>
+
+  </head>
+
+
+  <body class="pages pages_youre_doing_it_wrong_unix_tools pages_youre_doing_it_wrong_unix_tools_index">
+      
+    <div class="center-box div-title">
+
+            <div class="title-menu float-right">
+
+                    <a class="menu-item float-right pages" href="/pages/">
+                        <div>
+                            <div class="icon"></div>
+                            blog
+                        </div>
+                    </a>
+                    <a class="menu-item float-right teaching" href="/teaching/">
+                        <div>
+                            <div class="icon"></div>
+                            teach
+                        </div>
+                    </a>
+                    <a class="menu-item float-right code" href="/code/">
+                        <div>
+                            <div class="icon"></div>
+                            code
+                        </div>
+                    </a>
+                    <a class="menu-item float-right music" href="/music/">
+                        <div>
+                            <div class="icon"></div>
+                            music
+                        </div>
+                    </a>
+
+            </div>
+
+          <div class="title">
+              <a href="/">
+                  Sean Yeh
+              </a>
+          </div>
+
+
+    </div>
+
+    <div class="pages pages_youre_doing_it_wrong_unix_tools pages_youre_doing_it_wrong_unix_tools_index content">
+        <div class="center-box">
+    <p>
+    <a href="/pages">← back to blog</a>
+    </p>
+
+    <h2>
+        You're doing it wrong: unix tools
+    </h2>
+
+    <div class="published">
+        Published: 2019-01-02
+    </div>
+
+    <div class="tags">
+        tags:
+
+        <a href="/pages/tags/tech/">tech</a>,<a href="/pages/tags/linux/">linux</a>
+    </div>
+
+    <div class="break"></div>
+
+
+    <div>
+        
+<h3 id="introduction-curl-and-wget">Introduction: curl and wget</h3>
+
+<p>Most developers know that <strong>curl</strong> has more features than <strong>wget</strong>, but for any
+task involving downloading files, wget seems to be the most popular.
+Why is that?</p>
+
+<p>Well, it really boils down to the defaults. While the author of curl has
+<a href="https://daniel.haxx.se/blog/2014/11/17/why-curl-defaults-to-stdout/">explained</a>
+his design choice, curl defaults to <em>printing to stdout</em> whereas wget defaults to
+<em>saving to a file</em>. Naturally, people will take the path of least resistance, and
+prefer <code>wget</code> over <code>curl -O</code>.</p>
+
+<p>I bring this example up because, despite the intentions of the authors, users
+tend to use the tools in whatever way works best for them.</p>
+
+<h3 id="touch">Touch</h3>
+
+<p><img src="/pages/youre_doing_it_wrong_unix_tools/man_touch.png" alt="touch man page" /></p>
+
+<p>According to the man page, <strong>touch</strong>'s main purpose is to <em>change file timestamps</em>.
+When was the last time you used it that way? I can confidently say in my decade
+and a half of using unix tools, I have only had to do that <strong>once</strong> (and it was
+for a shell programming homework assignment).</p>
+
+<p>Under "description" in the man page, it says:</p>
+
+<p><code>Update the access and modification times of each FILE to the current time.</code></p>
+
+<p>and then</p>
+
+<p><code>A FILE argument that does not exist is created empty, unless -c or -h is supplied.</code></p>
+
+<p>Aha! Interesting that what seems like just a side effect (creating an empty
+file) has become the most common use case.</p>
+
+<h3 id="cat">Cat</h3>
+
+<p><img src="/pages/youre_doing_it_wrong_unix_tools/man_cat.png" alt="cat man page" /></p>
+
+<p>It is conventional wisdom that <strong>cat</strong> is used to print out files to
+stdout because cat stands for…con<strong>cat</strong>enate? Huh?</p>
+
+<p>Imagine you were to write a function that takes in strings and returns the
+concatenation of all of them. A mindful developer would take into account <em>any</em>
+number of inputs, including zero and one input, but a beginner (or
+lazy) developer might not. From this problem description, it would seem like
+inputs of zero or one strings are <strong>edge cases</strong>.</p>
+
+<p>Strange how for <strong>cat</strong>, concatenating <em>one</em> file is its primary use case!</p>
+
+<p>The man page for cat says it will <em>concatenate files and print on the standard
+output</em>. However, most people use it to simply print the contents of <em>one</em> file
+to stdout, which has led to using cat to chain commands,
+e.g. <code>cat file | grep "hi"</code>.</p>
+
+<p>This idiom is so common that people have even written about
+the <a href="https://en.wikipedia.org/wiki/Cat_(Unix)#Useless_use_of_cat">Useless Use of Cat</a>
+and the <a href="http://porkmail.org/era/unix/award.html">Useless Use of Cat Award</a>!</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Despite the title of this post, I think it's perfectly fine to use the tools in
+anyway you need. In fact, I would say these tools are the easiest to use for
+the functions I've mentioned above (which I use all the time). I just
+find it quite fascinating to see how in both <strong>touch</strong> and <strong>cat</strong>, the intended use
+has been neglected (or even forgotten) because of a more useful side effect.</p>
+
+<p>In the case with <strong>cat</strong>, I find there are benefits with the "useless" use.
+Conceptually, chaining simple commands through pipes is much easier than
+remembering which argument is for the input file. Also, when building a more
+complicated command, I like to visually see the output step-by-step. And with
+the only con being…spawning an extra process? It's okay, I'll stick with my
+current
+<a href="https://xkcd.com/1172/">workflow</a> :)</p>
+
+    </div>
+
+
+
+        <div class="center-box">
+            <div class="footer">
+                Contact: <span class="obfuscate">sean<span>NOSPAM</span>@<span>NOSPAM</span>seanyeh.com</span>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>
