@@ -30,13 +30,6 @@
       <dc:date>2019-01-02T00:00:00-06:00</dc:date>
     </item>
     <item>
-      <title>Back to the Books</title>
-      <link>https://seanyeh.com/pages/back_to_the_books/</link>
-      <description>I've recently been getting back into contributing to open source software, and I almost forgot how daunting exploring a huge, unfamiliar codebase can be.... &lt;a href=&quot;https://seanyeh.com/pages/back_to_the_books/&quot;&gt;Read More »&lt;/a&gt;</description>
-      <pubDate>Sat, 29 Dec 2018 00:00:00 -0600</pubDate>
-      <dc:date>2018-12-29T00:00:00-06:00</dc:date>
-    </item>
-    <item>
       <title>Revisiting the Monty Hall Problem with Elm</title>
       <link>https://seanyeh.com/pages/revisiting_monty_hall_problem_elm/</link>
       <description>Revisiting the Monty Hall Problem with Elm... &lt;a href=&quot;https://seanyeh.com/pages/revisiting_monty_hall_problem_elm/&quot;&gt;Read More »&lt;/a&gt;</description>
@@ -70,20 +63,6 @@
       <description>Here is the infamous excerpt from Charles-Valentin Alkan's Concerto for Solo Piano, Op. 39, No. 10 (mvt. 3). The triple sharp... &lt;a href=&quot;https://seanyeh.com/pages/alkans_triple_sharp/&quot;&gt;Read More »&lt;/a&gt;</description>
       <pubDate>Sat, 28 Jul 2018 00:00:00 -0500</pubDate>
       <dc:date>2018-07-28T00:00:00-05:00</dc:date>
-    </item>
-    <item>
-      <title>Free Food</title>
-      <link>https://seanyeh.com/pages/freefood/</link>
-      <description>Everyone knows that college/university tuition is absurdly high in the US... &lt;a href=&quot;https://seanyeh.com/pages/freefood/&quot;&gt;Read More »&lt;/a&gt;</description>
-      <pubDate>Thu, 26 Jan 2017 00:00:00 -0600</pubDate>
-      <dc:date>2017-01-26T00:00:00-06:00</dc:date>
-    </item>
-    <item>
-      <title>2017</title>
-      <link>https://seanyeh.com/pages/2017/</link>
-      <description>One of my New Year's resolutions for 2017 is to start a blog... &lt;a href=&quot;https://seanyeh.com/pages/2017/&quot;&gt;Read More »&lt;/a&gt;</description>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
-      <dc:date>2017-01-01T00:00:00-06:00</dc:date>
     </item>
   </channel>
 </rss>
