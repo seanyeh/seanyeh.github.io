@@ -24,6 +24,9 @@ end
 def get_posts()
     posts = sitemap.resources.select{|item| item.path =~ /pages\/[^\/]+\.html/}
 
+    # Only allow posts that have a title and created timestamp
+    posts.select! { |p| p.data.title && p.data.created }
+
     # Sort from newest to oldest
     posts.sort_by! {|item| item.data.created }.reverse!
 
