@@ -9,6 +9,13 @@
     <link>https://seanyeh.com/pages</link>
     <description>Short essays and thoughts</description>
     <item>
+      <title>The Coordinate System: representing music in code</title>
+      <link>https://seanyeh.com/pages/music_notes_and_intervals_in_code/</link>
+      <description>A brief overview of tha simple and elegant approach to representing music notes and intervals... &lt;a href=&quot;https://seanyeh.com/pages/music_notes_and_intervals_in_code/&quot;&gt;Read More »&lt;/a&gt;</description>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 -0500</pubDate>
+      <dc:date>2024-08-25T00:00:00-05:00</dc:date>
+    </item>
+    <item>
       <title>Fixing kernel hangs on Ryzen 2200g + Vega 8 graphics on Linux</title>
       <link>https://seanyeh.com/pages/fixing_kernel_hang_ryzen_2200g_vega_linux/</link>
       <description>I recently built a cheap gaming pc with the Ryzen 2200g processor with Vega 8 graphics. It worked well for many things, but for certain games (or totally randomly), the kernel would hang... &lt;a href=&quot;https://seanyeh.com/pages/fixing_kernel_hang_ryzen_2200g_vega_linux/&quot;&gt;Read More »&lt;/a&gt;</description>
